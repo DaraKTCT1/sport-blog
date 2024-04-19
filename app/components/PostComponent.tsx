@@ -11,7 +11,7 @@ const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 const PostComponent = ({ post }: PropType) => {
   return (
-    <div className="mb-8 p-4 border border-gray-900 rounded-md shadow-sm shadow-purple-950 hover:shadow-md hover:bg-purple-500 hover:text-white hover:dark:bg-gray-950">
+    <div className="mb-8 p-4 border border-gray-400 rounded-md shadow-sm shadow-purple-950 hover:shadow-md hover:bg-purple-500 hover:text-white hover:dark:bg-gray-950">
       <Link href={`/posts/${post?.slug?.current}`}>
         <h2 className={`${font.className} text-2xl dark:text-slate-300`}>
           {post?.title}
