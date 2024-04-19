@@ -24,7 +24,7 @@ const Tags = async () => {
   return (
     <div>
       <Header title="Tags" />
-      <div className="flex m-auto w-[95%] justify-between items-center gap-5">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center px-1 md:px-3 gap-2 md:gap-5">
         {tags?.length > 0 &&
           tags.map((tag) => (
             <Link key={tag._id} href={`/tag/${tag.slug.current}`}>
