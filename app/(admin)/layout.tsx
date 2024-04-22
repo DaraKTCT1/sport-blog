@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-full bg-amber-50 text-indigo-950 dark:bg-indigo-950 dark:text-amber-50">
+      <body className="h-full bg-white1 text-dark1 dark:bg-dark1 dark:text-white1">
         <Provider>
           {" "}
           <CMSNavbar />

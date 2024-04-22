@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${firaCode.className} h-full bg-amber-50 text-indigo-950 dark:bg-indigo-950 dark:text-amber-50 dark:selection:bg-purple-500`}
+        className={`${firaCode.className} h-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1 dark:selection:bg-blue1`}
       >
         <Provider>
           <Navbar />

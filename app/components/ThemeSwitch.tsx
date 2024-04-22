@@ -18,7 +18,7 @@ const ThemeSwitch = () => {
 
   return (
     <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-      {theme === "dark" ? <IoSunnySharp className="text-2xl text-purple-500" /> : <IoMoon className="text-2xl text-purple-500" />}
+      {theme === "dark" ? <IoSunnySharp className="text-2xl text-blue1" /> : <IoMoon className="text-2xl text-blue1" />}
     </button>
   );
 };

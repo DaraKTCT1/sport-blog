@@ -8,11 +8,11 @@ const CMSNavbar = () => {
   return (
     <div className="flex justify-between items-center py-1 px-5">
       <Link href="/">
-        <TiArrowBack className="text-3xl" />
+        <TiArrowBack className="text-3xl text-blue1" />
       </Link>
-      <div className={`${font.className} text-3xl dark:text-amber-50`}>
+      <div className={`${font.className} text-3xl dark:text-white1`}>
         Sport
-        <span className="text-purple-500">News</span>
+        <span className="text-blue1">News</span>
       </div>
     </div>
   );
