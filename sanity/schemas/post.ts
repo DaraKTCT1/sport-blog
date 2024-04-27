@@ -27,6 +27,15 @@ export const post = {
       initialValue: () => new Date().toISOString(),
     },
     {
+      name: "image",
+      title: "Main Image",
+      type: "image",
+      // options: {
+      //   hotspot: true, // Allows selecting a hotspot for cropping
+      // },
+      validation: (Rule: Rule) => Rule.required().error("Image Required"),
+    },
+    {
       name: "excerpt",
       title: "Excerpt",
       type: "text",

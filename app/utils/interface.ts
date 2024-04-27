@@ -7,6 +7,7 @@ export interface PostType {
   body: any;
   tags: Array<TagType>;
   _id: string;
+  image: string;
 }
 export interface TagType {
   name: string;

@@ -8,6 +8,7 @@ async function getPosts() {
   *[_type == "post"] | order(publishedAt desc)[0...10]{
     title,
     slug,
+    "image": image.asset->url,
     publishedAt,
     excerpt,
     tags []-> {
@@ -24,6 +25,7 @@ export const revalidate = 60;
 
 export default async function Home() {
   const posts: PostType[] = await getPosts();
+  // console.log(posts);
 
   return (
     <main>
