@@ -9,11 +9,12 @@ const config: Config = {
   darkMode: "class",
   theme: {
     colors: {
-      "dark1": "#111111",
-      "dark2": "#262626",
-      "blue1": "#687EFF",
-      "white1": "#FFFFFF",
-      "pink": "#949CB0",
+      dark1: "#111111",
+      dark2: "#262626",
+      blue1: "#687EFF",
+      blue2: "#a855f7",
+      white1: "#FFFFFF",
+      pink: "#949CB0",
     },
   },
   plugins: [require("@tailwindcss/typography")],

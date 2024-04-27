@@ -20,20 +20,20 @@ const PostComponent = ({ post }: PropType) => {
         </div>
         <div className="w-full flex flex-col justify-between h-auto px-1 lg:px-2">
           <h2
-            className={`${font.className} lg:py-1 text-[20px] lg:text-[22px] dark:text-slate-300 text-blue1`}
+            className={`${font.className} py-1 text-[20px] lg:text-[22px] dark:text-slate-300 text-blue1`}
           >
             {post?.title}
           </h2>
           <p
-            className={`${dateFont.className} text-[12px] lg:text-sm text-purple-800`}
+            className={` ${dateFont.className} py-1 text-[12px] lg:text-sm text-blue2`}
           >
             {new Date(post?.publishedAt).toDateString()}
           </p>
-          <p className="dark:text-gray-400 lg:py-1 text-[12px] lg:text-sm my-1 line-clamp-2">
+          <p className="dark:text-gray-400 text-[12px] lg:text-sm my-1 line-clamp-2">
             {post?.excerpt}
           </p>
           {/* tags */}
-          <div className="lg:py-1">
+          <div className="py-1">
             {post?.tags?.map((tag) => (
               <span
                 key={tag._id}
