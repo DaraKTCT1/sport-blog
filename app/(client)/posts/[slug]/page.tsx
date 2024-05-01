@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import { PostType } from "@/app/utils/interface";
+import Header from "@/components/Header";
+import { PostType } from "@/utils/interface";
 import { client } from "@/sanity/lib/client";
 import { VT323 } from "next/font/google";
 import Link from "next/link";

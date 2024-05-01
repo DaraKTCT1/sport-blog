@@ -1,4 +1,3 @@
-import { title } from "process";
 export interface PostType {
   title: string;
   slug: { current: string };

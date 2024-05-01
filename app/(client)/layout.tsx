@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import { Provider } from "../utils/Provider";
-import Footer from "../components/Footer";
+import Navbar from "@/components/Navbar";
+import { Provider } from "@/utils/Provider";
+import Footer from "@/components/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -26,8 +26,8 @@ export default function RootLayout({
         <Provider>
           <Navbar />
           <main className="mx-auto max-w-7xl px-6">{children}</main>
+          <Footer />
         </Provider>
-        <Footer />
       </body>
     </html>
   );

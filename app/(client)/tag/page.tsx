@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import { TagType } from "@/app/utils/interface";
+import Header from "@/components/Header";
+import { TagType } from "@/utils/interface";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 
@@ -22,7 +22,7 @@ const Tags = async () => {
   // console.log(tags);
 
   return (
-    <div>
+    <section>
       <Header title="All Blog By Tags" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center px-1 md:px-3 gap-2 md:gap-5">
         {tags?.length > 0 &&
@@ -34,7 +34,7 @@ const Tags = async () => {
             </Link>
           ))}
       </div>
-    </div>
+    </section>
   );
 };
 
