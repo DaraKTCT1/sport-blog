@@ -1,5 +1,5 @@
-import CMSNavbar from "@/components/CMSNavbar";
-import { Provider } from "@/utils/Provider";
+// import CMSNavbar from "@/components/CMSNavbar";
+// import { Provider } from "@/utils/Provider";
 import "./globals.css";
 
 export const metadata = {
@@ -15,11 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-full bg-white1 text-dark1 dark:bg-dark1 dark:text-white1">
-        {" "}
-        <Provider>
-          <CMSNavbar />
-          {children}
-        </Provider>
+        {/* <Provider> */}
+        {/* <CMSNavbar /> */}
+        {children}
+        {/* </Provider> */}
       </body>
     </html>
   );
