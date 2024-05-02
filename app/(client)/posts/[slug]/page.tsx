@@ -30,6 +30,14 @@ async function getPost(slug: string) {
 
 export const revalidate = 60;
 
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }: any) => (
+      <Image src={urlForImage(value)} alt="Post" width={700} height={700} />
+    ),
+  },
+};
+
 const SinglePost = async ({
   params: { slug },
 }: {
@@ -75,11 +83,3 @@ const SinglePost = async ({
 };
 
 export default SinglePost;
-
-const myPortableTextComponents = {
-  types: {
-    image: ({ value }: any) => (
-      <Image src={urlForImage(value)} alt="Post" width={700} height={700} />
-    ),
-  },
-};

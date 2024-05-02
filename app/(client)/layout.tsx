@@ -23,7 +23,12 @@ export default function RootLayout({
       <body
         className={`${firaCode.className} h-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1 dark:selection:bg-blue1`}
       >
-        <Provider>
+        <Provider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           <main className="mx-auto max-w-7xl px-6">{children}</main>
           <Footer />

@@ -12,15 +12,16 @@ const Header = ({ title = "", tags = false }: PropType) => {
         {title}
       </h2>
 
-      {tags && (
+      {tags ? (
         <div className="text-blue1 mt-4 underline cursor-pointer text-[1.5rem]">
-          <Link href={"/tag"}>
+          <Link href="/tag">
             <div className="w-full flex m-auto justify-center items-center ">
-              <IoArrowRedoSharp className="text-[2rem]" /><span className="pl-1">#AllBlogs</span>
+              <IoArrowRedoSharp className="text-[2rem]" />
+              <span className="pl-1">#AllBlogs</span>
             </div>
           </Link>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
