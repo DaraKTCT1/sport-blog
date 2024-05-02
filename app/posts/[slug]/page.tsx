@@ -30,6 +30,31 @@ async function getPost(slug: string) {
 
 export const revalidate = 60;
 
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  const post: PostType = await getPost(slug);
+
+  if (!post) {
+    return;
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      locale: "en_US",
+      url: `${process.env.WEBSITE_URL}posts/${slug}`,
+      siteName: "SportBlogs",
+    },
+  };
+}
+
 const myPortableTextComponents = {
   types: {
     image: ({ value }: any) => (

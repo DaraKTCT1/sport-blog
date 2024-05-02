@@ -9,8 +9,21 @@ import Footer from "@/components/Footer";
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sport Blog News",
+  metadataBase: new URL(process.env.WEBSITE_URL || ""),
+  title: {
+    default: "Sport Blog News",
+    template: '%s | Sport Blog News',
+  },
   description: "Share information about sport for everyone.",
+  // openGraph is how website look like when we share our website
+  openGraph: {
+    title: "Sport Blog News",
+    description: "Share information about sport for everyone.",
+    type: "website",
+    locale: "en_US",
+    url: process.env.WEBSITE_URL,
+    siteName: "SportBlogs",
+  },
 };
 
 export default function RootLayout({

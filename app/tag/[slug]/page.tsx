@@ -25,6 +25,25 @@ async function getPostByTag(slug: string) {
 
 export const revalidate = 60;
 
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  return {
+    title: `#${slug}`,
+    description: `Posts with the tag #${slug}`,
+    openGraph: {
+      title: `#${slug}`,
+      description: `Posts with the tag #${slug}`,
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.WEBSITE_URL}tag/${slug}`,
+      siteName: "SportBlogs",
+    },
+  };
+}
+
 const SingleTag = async ({
   params: { slug },
 }: {
