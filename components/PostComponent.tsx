@@ -14,7 +14,7 @@ const PostComponent = ({ post }: PropType) => {
   // console.log(post.image);
   return (
     <Link href={`/posts/${post?.slug?.current}`}>
-      <div className="mb-8 w-full h-96 rounded-md shadow-sm shadow-purple-950 hover:shadow-md hover:bg-purple-500 hover:text-white bg-[#e7ecef] hover:bg-white1 dark:bg-dark2 hover:dark:bg-dark1">
+      <div className="mb-8 w-full h-96 rounded-md bg-[#e7ecef] hover:opacity-85 dark:bg-dark2 hover:dark:opacity-75">
         <div className="relative w-full h-[60%] lg:h-[55%] rounded-md">
           <Image alt="image" className="rounded-t-md" fill src={post?.image} />
         </div>

@@ -26,8 +26,8 @@ export default function RootLayout({
         <Provider
           attribute="class"
           defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          // enableSystem
+          // disableTransitionOnChange
         >
           <Navbar />
           <main className="mx-auto max-w-7xl px-6">{children}</main>
