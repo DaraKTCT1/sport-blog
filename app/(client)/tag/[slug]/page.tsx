@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import PostComponent from "@/components/PostComponent";
-import { getPostByTag } from "@/utils/action";
+import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
 import { notFound } from "next/navigation";
 
