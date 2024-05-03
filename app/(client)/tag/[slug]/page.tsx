@@ -6,6 +6,25 @@ import { notFound } from "next/navigation";
 
 export const revalidate = 600;
 
+async function getPostByTag(slug: string) {
+  const query = `
+    *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id)]{
+      title,
+      slug,
+      publishedAt,
+      "image": image.asset->url,
+      excerpt,
+      tags []-> {
+        _id,
+        slug,
+        name,
+      } 
+    }
+    `;
+  const data = await client.fetch(query);
+  return data;
+}
+
 export async function generateMetadata({
   params: { slug },
 }: {
