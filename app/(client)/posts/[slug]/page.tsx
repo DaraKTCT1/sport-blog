@@ -77,7 +77,7 @@ const SinglePost = async ({
             ))}
         </div>
 
-        <div className="mt-14 text-justify max-w-2xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-decimal prose-li:leading-7 prose-li:ml-4">
+        <div className="mt-14 break-words text-justify max-w-2xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-decimal prose-li:leading-7 prose-li:ml-4">
           <PortableText
             value={post?.body}
             components={myPortableTextComponents}
