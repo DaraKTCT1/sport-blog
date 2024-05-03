@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider attribute="class" defaultTheme="system">
+        <Provider attribute="class">
           <CMSNavbar />
           {children}
         </Provider>
