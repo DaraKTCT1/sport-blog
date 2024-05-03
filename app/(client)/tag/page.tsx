@@ -16,7 +16,7 @@ async function getAllTags() {
   return data;
 }
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: "Tags",
@@ -28,7 +28,7 @@ const Tags = async () => {
   // console.log(tags);
 
   return (
-    <div>
+    <section>
       <Header title="All Blog By Tags" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center px-1 md:px-3 gap-2 md:gap-5">
         {tags?.length > 0
@@ -41,7 +41,7 @@ const Tags = async () => {
             ))
           : null}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -6,7 +6,7 @@ const font = Lilita_One({ weight: "400", subsets: ["latin"] });
 
 const CMSNavbar = () => {
   return (
-    <div className="flex justify-between items-center py-1 px-5">
+    <div className="w-full flex justify-between items-center py-1 px-5">
       <Link href="/">
         <TiArrowBack className="text-3xl text-blue1" />
       </Link>

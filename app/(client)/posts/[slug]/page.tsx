@@ -28,7 +28,7 @@ async function getPost(slug: string) {
   return data;
 }
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export async function generateMetadata({
   params: { slug },
@@ -78,7 +78,7 @@ const SinglePost = async ({
 
   return (
     <div>
-      <Header title={post?.title} tags />
+      <Header title={post?.title} tags={true} />
       <div className="text-center">
         <span className={`${dateFont.className} text-purple-500`}>
           {new Date(post?.publishedAt).toDateString()}

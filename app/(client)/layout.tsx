@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.WEBSITE_URL || ""),
   title: {
     default: "Sport Blog News",
-    template: '%s | Sport Blog News',
+    template: "%s | Sport Blog News",
   },
   description: "Share information about sport for everyone.",
   // openGraph is how website look like when we share our website
@@ -33,9 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${firaCode.className} h-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1 dark:selection:bg-blue1`}
-      >
+      <body>
         <Provider
           attribute="class"
           defaultTheme="system"
@@ -43,7 +41,11 @@ export default function RootLayout({
           // disableTransitionOnChange
         >
           <Navbar />
-          <main className="mx-auto max-w-7xl px-6">{children}</main>
+          <main
+            className={`${firaCode.className} bg-white1 text-dark1 dark:text-white1 dark:bg-dark1 mx-auto px-6`}
+          >
+            {children}
+          </main>
           <Footer />
         </Provider>
       </body>
