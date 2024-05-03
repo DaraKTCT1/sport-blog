@@ -7,7 +7,7 @@ interface PropType {
 }
 const Header = ({ title = "", tags = false }: PropType) => {
   return (
-    <div className="py-14 px-4 mb-12 text-center flex flex-col justify-center w-full m-auto border-b dark:border-blue1">
+    <div className="py-14 px-4 mb-12 text-center flex flex-col justify-center w-full m-auto border-b dark:border-blue1 md:border-none">
       <h2 className="uppercase text-3xl mx-auto max-w-2xl font-bold">
         {title}
       </h2>
