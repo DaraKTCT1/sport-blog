@@ -4,8 +4,6 @@ import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
 import { notFound } from "next/navigation";
 
-export const revalidate = 600;
-
 async function getPostByTag(slug: string) {
   const query = `
     *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id)]{
@@ -43,6 +41,8 @@ export async function generateMetadata({
     },
   };
 }
+
+export const revalidate = 600;
 
 const SingleTag = async ({
   params: { slug },
