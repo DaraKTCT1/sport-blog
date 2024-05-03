@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 
-export const revalidate = 600;
-
 async function getAllTags() {
   const query = `
     *[_type == "tag"]{
@@ -22,6 +20,8 @@ export const metadata: Metadata = {
   title: "Tags",
   description: "Share information about sport for everyone.",
 };
+
+export const revalidate = 600;
 
 const Tags = async () => {
   const tags: TagType[] = await getAllTags();
