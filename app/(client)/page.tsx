@@ -1,9 +1,27 @@
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
 import PostComponent from "@/components/PostComponent";
-import { getPosts } from "@/utils/action";
+
 
 export const revalidate = 600;
+
+export async function getPosts() {
+  const query = `
+    *[_type == "post"] | order(publishedAt desc)[0...10]{
+      title,
+      slug,
+      "image": image.asset->url,
+      publishedAt,
+      excerpt,
+      tags []-> {
+        _id,
+        slug,
+        name,
+      } 
+    }`;
+  const data = await client.fetch(query);
+  return data;
+}
 
 export default async function Home() {
   const posts: PostType[] = await getPosts();
