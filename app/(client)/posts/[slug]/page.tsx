@@ -11,6 +11,25 @@ const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 export const revalidate = 600;
 
+async function getPost(slug: string) {
+  const query = `
+    *[_type == "post" && slug.current == "${slug}"][0]{
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      _id,
+      body,
+      tags []-> {
+        _id,
+        slug,
+        name,
+      } 
+    }`;
+  const data = await client.fetch(query);
+  return data;
+}
+
 export async function generateMetadata({
   params: { slug },
 }: {
