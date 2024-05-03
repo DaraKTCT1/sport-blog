@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
 import PostComponent from "@/components/PostComponent";
+import { client } from "@/sanity/lib/client";
 
 
 export const revalidate = 600;
 
-export async function getPosts() {
+async function getPosts() {
   const query = `
     *[_type == "post"] | order(publishedAt desc)[0...10]{
       title,
