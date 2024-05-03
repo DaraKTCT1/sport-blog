@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import { TagType } from "@/utils/interface";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getAllTags } from "@/utils/action";
+import { client } from "@/sanity/lib/client";
 
 export const revalidate = 600;
 
