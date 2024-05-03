@@ -9,6 +9,8 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
+export const revalidate = 300;
+
 async function getPost(slug: string) {
   const query = `
     *[_type == "post" && slug.current == "${slug}"][0]{
@@ -60,8 +62,6 @@ const myPortableTextComponents = {
     ),
   },
 };
-
-export const revalidate = 600;
 
 const SinglePost = async ({
   params: { slug },
