@@ -1,20 +1,8 @@
 import Header from "@/components/Header";
 import { TagType } from "@/utils/interface";
-import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import { Metadata } from "next";
-
-async function getAllTags() {
-  const query = `
-  *[_type == "tag"]{
-    name,
-    slug,
-    _id,
-    "postCount": count(*[_type == "post" && references("tags", ^._id)])
-  }`;
-  const data = await client.fetch(query);
-  return data;
-}
+import { getAllTags } from "@/utils/action";
 
 export const revalidate = 600;
 

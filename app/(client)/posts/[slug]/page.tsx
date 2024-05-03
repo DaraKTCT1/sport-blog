@@ -1,32 +1,13 @@
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
-import { client } from "@/sanity/lib/client";
 import { VT323 } from "next/font/google";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
+import { getPost } from "@/utils/action";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
-
-async function getPost(slug: string) {
-  const query = `
-  *[_type == "post" && slug.current == "${slug}"][0]{
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    _id,
-    body,
-    tags []-> {
-      _id,
-      slug,
-      name,
-    } 
-  }`;
-  const data = await client.fetch(query);
-  return data;
-}
 
 export const revalidate = 600;
 

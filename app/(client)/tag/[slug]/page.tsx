@@ -1,27 +1,8 @@
 import Header from "@/components/Header";
 import PostComponent from "@/components/PostComponent";
+import { getPostByTag } from "@/utils/action";
 import { PostType } from "@/utils/interface";
-import { client } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
-
-async function getPostByTag(slug: string) {
-  const query = `
-  *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id)]{
-    title,
-    slug,
-    publishedAt,
-    "image": image.asset->url,
-    excerpt,
-    tags []-> {
-      _id,
-      slug,
-      name,
-    } 
-  }
-  `;
-  const data = await client.fetch(query);
-  return data;
-}
 
 export const revalidate = 600;
 

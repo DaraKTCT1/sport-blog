@@ -1,25 +1,7 @@
-import { client } from "@/sanity/lib/client";
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
 import PostComponent from "@/components/PostComponent";
-
-async function getPosts() {
-  const query = `
-  *[_type == "post"] | order(publishedAt desc)[0...10]{
-    title,
-    slug,
-    "image": image.asset->url,
-    publishedAt,
-    excerpt,
-    tags []-> {
-      _id,
-      slug,
-      name,
-    } 
-  }`;
-  const data = await client.fetch(query);
-  return data;
-}
+import { getPosts } from "@/utils/action";
 
 export const revalidate = 600;
 
