@@ -6,6 +6,18 @@ import { client } from "@/sanity/lib/client";
 
 export const revalidate = 600;
 
+async function getAllTags() {
+  const query = `
+    *[_type == "tag"]{
+      name,
+      slug,
+      _id,
+      "postCount": count(*[_type == "post" && references("tags", ^._id)])
+    }`;
+  const data = await client.fetch(query);
+  return data;
+}
+
 export const metadata: Metadata = {
   title: "Tags",
   description: "Share information about sport for everyone.",
