@@ -6,7 +6,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
-import { getPost } from "@/utils/action";
+import { client } from "@/sanity/lib/client";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 export const revalidate = 600;
