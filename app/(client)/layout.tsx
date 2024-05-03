@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-white1 text-dark1 dark:text-white1 dark:bg-dark1">
         <Provider
           attribute="class"
           // defaultTheme="system"
@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main
-            className={`${firaCode.className} bg-white1 text-dark1 dark:text-white1 dark:bg-dark1 mx-auto px-6`}
+            className={`${firaCode.className}  mx-auto px-6`}
           >
             {children}
           </main>
