@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.button1 {
-  @apply bg-slate-900 text-white;
-}
