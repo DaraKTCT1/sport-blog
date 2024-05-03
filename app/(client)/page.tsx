@@ -3,6 +3,8 @@ import { PostType } from "@/utils/interface";
 import PostComponent from "@/components/PostComponent";
 import { client } from "@/sanity/lib/client";
 
+export const revalidate = 300;
+
 async function getPosts() {
   const query = `
     *[_type == "post"] | order(publishedAt desc)[0...10]{
@@ -20,8 +22,6 @@ async function getPosts() {
   const data = await client.fetch(query);
   return data;
 }
-
-export const revalidate = 600;
 
 export default async function Home() {
   const posts: PostType[] = await getPosts();
