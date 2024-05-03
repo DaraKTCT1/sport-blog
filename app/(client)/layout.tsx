@@ -36,7 +36,7 @@ export default function RootLayout({
       <body>
         <Provider
           attribute="class"
-          defaultTheme="system"
+          // defaultTheme="system"
           // enableSystem
           // disableTransitionOnChange
         >
