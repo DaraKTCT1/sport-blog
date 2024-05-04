@@ -23,3 +23,7 @@
     transform: rotate(360deg);
   }
 }
+
+.navscrool{
+  transition: 0.3s ease-in-out;
+}

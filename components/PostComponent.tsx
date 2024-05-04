@@ -20,7 +20,9 @@ const PostComponent = ({ post }: PropType) => {
             alt={`${post.title}`}
             className="rounded-t-md"
             fill
+            priority
             src={post?.image}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="w-full flex flex-col justify-between h-auto px-1 lg:px-2">
