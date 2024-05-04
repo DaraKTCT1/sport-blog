@@ -77,7 +77,7 @@ const SinglePost = async ({
   // if do not have post call not found it mean go to not-found.tsx
 
   return (
-    <div>
+    <div className="w-full px-3 md:px-5 lg:px-10">
       <Header title={post?.title} tags={true} />
       <div className="text-center">
         <span className={`${dateFont.className} text-purple-500`}>
