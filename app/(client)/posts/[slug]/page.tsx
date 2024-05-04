@@ -77,14 +77,14 @@ const SinglePost = async ({
   // if do not have post call not found it mean go to not-found.tsx
 
   return (
-    <div className="w-full px-3 md:px-5 lg:px-10">
+    <div className="w-full">
       <Header title={post?.title} tags={true} />
-      <div className="text-center">
+      <div className="text-center w-full px-3 md:px-5 lg:px-10">
         <span className={`${dateFont.className} text-purple-500`}>
           {new Date(post?.publishedAt).toDateString()}
         </span>
       </div>
-      <div className="mt-5">
+      <div className="w-full mt-5">
         <div className="w-full flex m-auto justify-center gap-3 p-3">
           {post?.tags?.length > 0 &&
             post?.tags.map((tag) => (
