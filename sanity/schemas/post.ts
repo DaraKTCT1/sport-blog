@@ -1,4 +1,3 @@
-import { title } from "process";
 import { Rule } from "sanity";
 
 export const post = {

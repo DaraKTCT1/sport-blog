@@ -7,6 +7,7 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
+import AddComment from "@/components/AddComment";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 export const revalidate = 300;
@@ -101,6 +102,7 @@ const SinglePost = async ({
             value={post?.body}
             components={myPortableTextComponents}
           />
+          <AddComment />
         </div>
       </div>
     </div>
