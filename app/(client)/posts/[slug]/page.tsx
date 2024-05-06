@@ -102,7 +102,7 @@ const SinglePost = async ({
             value={post?.body}
             components={myPortableTextComponents}
           />
-          <AddComment />
+          <AddComment postId={post._id} />
         </div>
       </div>
     </div>
