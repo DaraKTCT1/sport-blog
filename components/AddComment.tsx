@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 const AddComment = ({ postId }: { postId: string }) => {
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   const onSubmit = async (data: any) => {
@@ -19,7 +20,10 @@ const AddComment = ({ postId }: { postId: string }) => {
       body: JSON.stringify({ name, email, comment, postId }),
     });
 
-    if (!res.ok) {
+    if (res.ok) {
+      alert("Comment added successfully!");
+      reset();
+    } else {
       console.log("Failed to add a comment");
       return;
     }
@@ -31,12 +35,12 @@ const AddComment = ({ postId }: { postId: string }) => {
         Leave a comment <span role="img">💬</span>
       </p>
       <form
-        className="flex flex-col border dark:border-white1 shadow-sm rounded-sm px-8 py-6 mb-10"
+        className="flex flex-col border dark:border-white1 shadow-sm rounded-md px-8 py-6 mb-10"
         onSubmit={handleSubmit((data) => onSubmit(data))}
       >
         <label>Name</label>
         <input
-          className="mb-4 py-2 rounded-sm bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("name", { required: true })}
         />
         {errors.name && (
@@ -44,7 +48,7 @@ const AddComment = ({ postId }: { postId: string }) => {
         )}
         <label>Email</label>
         <input
-          className="mb-4 py-2 rounded-sm bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("email", {
             required: true,
             pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -61,15 +65,19 @@ const AddComment = ({ postId }: { postId: string }) => {
         </label>
         <textarea
           rows={4}
-          className="mb-4 py-2 rounded-sm bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("comment", { required: true, minLength: 4 })}
         />
         {errors.comment && (
           <p className="text-xs text-red-600">comment at least 4 characters</p>
         )}
         <input
-          className="text-center cursor-pointer text-white font-semibold bg-gradient-to-r from-gray-800 to-black px-3 py-1 md:px-5 md:py-2 rounded-full border border-gray-600 hover:scale-105 duration-200 hover:text-gray-500 hover:border-gray-800 hover:from-black hover:to-gray-900"
+          className={`text-center cursor-pointer text-white font-semibold bg-gradient-to-r from-gray-800 to-black px-3 py-1 md:px-5 md:py-2 rounded-md border border-gray-600 hover:scale-105 duration-200 hover:text-gray-500 hover:border-gray-800 hover:from-black hover:to-gray-900 ${
+            isSubmitting ? "opacity-65" : ""
+          }`}
           type="submit"
+          value={isSubmitting ? "Submitting..." : "Submit"}
+          disabled={isSubmitting}
         />
       </form>
     </div>
