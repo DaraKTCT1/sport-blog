@@ -8,11 +8,21 @@ import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import AddComment from "@/components/AddComment";
+import AllComments from "@/components/AllComments";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
-export const revalidate = 300;
+interface PropsType {
+  params: {
+    slug: string;
+  };
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+}
 
-async function getPost(slug: string) {
+export const revalidate = 60;
+
+async function getPost(slug: string, order: string = "desc") {
   const query = `
     *[_type == "post" && slug.current == "${slug}"][0]{
       title,
@@ -25,7 +35,12 @@ async function getPost(slug: string) {
         _id,
         slug,
         name,
-      } 
+      },
+      "comments": *[ _type == "comment" && post._ref == ^._id ] | order(_createdAt ${order})[0...10]{
+        name,
+        comment,
+        _createdAt,
+      }
     }`;
   const data = await client.fetch(query);
   return data;
@@ -64,13 +79,10 @@ const myPortableTextComponents = {
   },
 };
 
-const SinglePost = async ({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) => {
-  const post: PostType = await getPost(slug);
-  // console.log(post);
+const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
+  const searchParamsOrder = searchParams.comments || "desc";
+  const post: PostType = await getPost(slug, searchParamsOrder.toString());
+  console.log(post);
 
   if (!post) {
     notFound();
@@ -103,6 +115,11 @@ const SinglePost = async ({
             components={myPortableTextComponents}
           />
           <AddComment postId={post._id} />
+          <AllComments
+            slug={post.slug.current}
+            commentsOrder={searchParamsOrder.toString()}
+            comments={post?.comments || []}
+          />
         </div>
       </div>
     </div>

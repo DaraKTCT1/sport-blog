@@ -35,7 +35,7 @@ const AddComment = ({ postId }: { postId: string }) => {
         Leave a comment <span role="img">💬</span>
       </p>
       <form
-        className="flex flex-col border dark:border-white1 shadow-sm rounded-md px-8 py-6 mb-10"
+        className="flex flex-col border dark:border-white1 shadow-sm rounded-md md:px-8 px-2 md:py-6 py-3 mb-10"
         onSubmit={handleSubmit((data) => onSubmit(data))}
       >
         <label>Name</label>

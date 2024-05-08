@@ -44,7 +44,7 @@ const PostComponent = ({ post }: PropType) => {
             {post?.tags?.map((tag) => (
               <span
                 key={tag._id}
-                className="mr-2 p-[2px] rounded-sm text-sm lowercase hover:dark:bg-blue1 dark:bg-dark1 border dark:border-dark1"
+                className="mr-2 p-[2px] rounded-sm text-sm lowercase hover:dark:bg-blue1 bg-[#FAFAFA] dark:bg-dark1 border dark:border-dark1"
               >
                 #{tag.name}
               </span>

@@ -15,7 +15,7 @@ const Header = ({ title = "", tags = false }: PropType) => {
     <div
       className={`${
         isScrolled ? "bg-[#EAEEF1] dark:bg-[#2C2C2C]" : ""
-      } navscrool sticky top-0 left-0 right-0 z-50 py-2 md:py-4 mb-12 text-center flex flex-col justify-center max-w-full m-auto border-b md:border-none`}
+      } navscrool sticky top-0 left-0 right-0 z-50 py-2 md:py-4 mb-12 text-center flex flex-col justify-center max-w-full m-auto`}
     >
       <h2 className="uppercase text-[24px] md:text-3xl mx-auto max-w-2xl font-bold">
         {title}

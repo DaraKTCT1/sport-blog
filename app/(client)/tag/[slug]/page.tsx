@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
 import { notFound } from "next/navigation";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 async function getPostByTag(slug: string) {
   const query = `
