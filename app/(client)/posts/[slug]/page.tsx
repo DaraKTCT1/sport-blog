@@ -20,7 +20,7 @@ interface PropsType {
   };
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 async function getPost(slug: string, order: string = "desc") {
   const query = `
