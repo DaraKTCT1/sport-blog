@@ -1,5 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 const AddComment = ({ postId }: { postId: string }) => {
   const {
@@ -8,6 +9,8 @@ const AddComment = ({ postId }: { postId: string }) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
+
+  const router = useRouter();
 
   const onSubmit = async (data: any) => {
     const { name, email, comment } = data;
@@ -23,6 +26,7 @@ const AddComment = ({ postId }: { postId: string }) => {
     if (res.ok) {
       alert("Comment added successfully!");
       reset();
+      router.refresh();
     } else {
       console.log("Failed to add a comment");
       return;
@@ -40,7 +44,7 @@ const AddComment = ({ postId }: { postId: string }) => {
       >
         <label>Name</label>
         <input
-          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("name", { required: true })}
         />
         {errors.name && (
@@ -48,7 +52,7 @@ const AddComment = ({ postId }: { postId: string }) => {
         )}
         <label>Email</label>
         <input
-          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("email", {
             required: true,
             pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -65,7 +69,7 @@ const AddComment = ({ postId }: { postId: string }) => {
         </label>
         <textarea
           rows={4}
-          className="mb-4 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
+          className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("comment", { required: true, minLength: 4 })}
         />
         {errors.comment && (
