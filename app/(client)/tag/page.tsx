@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 async function getAllTags() {
   const query = `

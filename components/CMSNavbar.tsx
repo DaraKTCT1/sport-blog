@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Lilita_One } from "next/font/google";
 import { TiArrowBack } from "react-icons/ti";
+// import { Lilita_One } from "next/font/google";
 
-const font = Lilita_One({ weight: "400", subsets: ["latin"] });
+// const font = Lilita_One({ weight: "400", subsets: ["latin"] });
 
 const CMSNavbar = () => {
   return (
@@ -10,7 +10,7 @@ const CMSNavbar = () => {
       <Link href="/">
         <TiArrowBack className="text-3xl text-blue1" />
       </Link>
-      <div className={`${font.className} text-3xl dark:text-white1`}>
+      <div className="text-3xl dark:text-white1">
         Sport
         <span className="text-blue1">News</span>
       </div>

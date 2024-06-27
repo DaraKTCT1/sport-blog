@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
-import { VT323 } from "next/font/google";
+// import { VT323 } from "next/font/google";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import AddComment from "@/components/AddComment";
 import AllComments from "@/components/AllComments";
-const dateFont = VT323({ weight: "400", subsets: ["latin"] });
+// const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 interface PropsType {
   params: {
@@ -93,7 +93,7 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
     <div className="w-full">
       <Header title={post?.title} tags={true} />
       <div className="text-center w-full px-3 md:px-5 lg:px-10">
-        <span className={`${dateFont.className} text-purple-500`}>
+        <span className="text-purple-500">
           {new Date(post?.publishedAt).toDateString()}
         </span>
       </div>
