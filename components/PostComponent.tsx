@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { PostType } from "@/utils/interface";
-import { Lilita_One, VT323 } from "next/font/google";
+import { VT323 } from "next/font/google";
 import Image from "next/image";
 
 interface PropType {
   post: PostType;
 }
 
-const font = Lilita_One({ weight: "400", subsets: ["latin"] });
+// const font = Lilita_One({ weight: "400", subsets: ["latin"] });
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 const PostComponent = ({ post }: PropType) => {
@@ -26,9 +26,7 @@ const PostComponent = ({ post }: PropType) => {
           />
         </div>
         <div className="w-full flex flex-col justify-between h-auto px-1 lg:px-2">
-          <h2
-            className={`${font.className} py-1 text-[20px] lg:text-[22px] dark:text-slate-300 text-blue1`}
-          >
+          <h2 className="py-1 text-[20px] lg:text-[22px] dark:text-slate-300 text-blue1">
             {post?.title}
           </h2>
           <p

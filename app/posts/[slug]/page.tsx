@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import AddComment from "@/components/AddComment";
 import AllComments from "@/components/AllComments";
+import { url } from "inspector";
 // const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 interface PropsType {
@@ -31,6 +32,7 @@ async function getPost(slug: string, order: string = "desc") {
       excerpt,
       _id,
       body,
+      "image": image.asset->url,
       tags []-> {
         _id,
         slug,
@@ -67,6 +69,16 @@ export async function generateMetadata({
       locale: "en_US",
       url: `${process.env.WEBSITE_URL}posts/${slug}`,
       siteName: "SportBlogs",
+      images: [
+        {
+          url: post.image,
+        },
+        // {
+        //   url: urlForImage(post?.body?.find((b: any) => b._type === "image")),
+        //   width: 1200,
+        //   height: 630,
+        // },
+      ],
     },
   };
 }
@@ -82,7 +94,7 @@ const myPortableTextComponents = {
 const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   const searchParamsOrder = searchParams.comments || "desc";
   const post: PostType = await getPost(slug, searchParamsOrder.toString());
-  console.log(post);
+  // console.log(post);
 
   if (!post) {
     notFound();

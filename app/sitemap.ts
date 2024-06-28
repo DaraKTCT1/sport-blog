@@ -3,9 +3,9 @@ import { PostType } from "@/utils/interface";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  async function getPosts() {
+  async function getPostsSitemap() {
     const query = `
-        *[_type == "post"] | order(publishedAt desc)[0...10]{
+        *[_type == "post"] {
           title,
           slug,
           "image": image.asset->url,
@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return data;
   }
 
-  const posts: PostType[] = await getPosts();
+  const posts: PostType[] = await getPostsSitemap();
 
   const postsUrl = posts.map((post) => {
     return {
