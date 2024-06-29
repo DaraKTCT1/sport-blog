@@ -85,13 +85,13 @@ export async function generateMetadata({
   };
 }
 
-const myPortableTextComponents = {
+{/* const myPortableTextComponents = {
   types: {
     image: ({ value }: any) => (
       <Image src={urlForImage(value)} alt="Post" width={700} height={700} />
     ),
   },
-};
+}; */}
 
 const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   const searchParamsOrder = searchParams.comments || "desc";
@@ -127,10 +127,10 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
         </div>
 
         <div className="w-full px-5 md:px-10 lg:px-12 mt-14 break-words text-justify max-w-2xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-decimal prose-li:leading-7 prose-li:ml-4">
-          <PortableText
+         {/* <PortableText
             value={post?.body}
             components={myPortableTextComponents}
-          />
+          /> */}
           <AddComment postId={post._id} />
           <AllComments
             slug={post.slug.current}
