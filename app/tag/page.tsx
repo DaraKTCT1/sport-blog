@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import { TagType } from "@/utils/interface";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -29,7 +29,10 @@ const Tags = async () => {
 
   return (
     <section>
-      <Header title="All Blog By Tags" />
+      {/* <Header title="All Blog By Tags" /> */}
+      <h1 className="w-full text-2xl font-semibold flex justify-center text-center py-5 md:py-8">
+        All Blog By Tags
+      </h1>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center px-1 md:px-3 gap-2 md:gap-5">
         {tags?.length > 0
           ? tags.map((tag) => (

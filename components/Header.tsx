@@ -1,27 +1,27 @@
 "use client";
 
-import Link from "next/link";
-import { IoArrowRedoSharp } from "react-icons/io5";
+// import Link from "next/link";
+// import { IoArrowRedoSharp } from "react-icons/io5";
 import useNavbarColorChange from "./useNavbarColorChange";
 
 interface PropType {
   title: string;
-  tags?: boolean;
+  // tags?: boolean;
 }
-const Header = ({ title = "", tags = false }: PropType) => {
+const Header = ({ title = "" }: PropType) => {
   const isScrolled = useNavbarColorChange();
 
   return (
     <div
       className={`${
-        isScrolled ? "bg-[#EAEEF1] dark:bg-[#2C2C2C]" : ""
+        isScrolled ? "bg-[#E7ECEF] dark:bg-[#2C2C2C]" : ""
       } navscrool sticky top-0 left-0 right-0 z-50 py-2 md:py-4 mb-12 text-center flex flex-col justify-center max-w-full m-auto`}
     >
-      <h2 className="uppercase text-[24px] md:text-3xl mx-auto max-w-2xl font-bold">
+      <h2 className="uppercase transparent-text-title text-[24px] md:text-3xl mx-auto max-w-2xl font-bold">
         {title}
       </h2>
 
-      {tags ? (
+      {/* {tags ? (
         <div className="text-blue1 mt-2 md:mt-4 underline cursor-pointer text-[20px] md:text-[1.5rem]">
           <Link href="/tag">
             <div className="w-full flex m-auto justify-center items-center ">
@@ -30,7 +30,7 @@ const Header = ({ title = "", tags = false }: PropType) => {
             </div>
           </Link>
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

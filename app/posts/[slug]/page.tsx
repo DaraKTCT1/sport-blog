@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
 // import { VT323 } from "next/font/google";
 import Link from "next/link";
@@ -72,7 +72,7 @@ export async function generateMetadata({
       images: [
         {
           url: post.image,
-          width: 1200, 
+          width: 1200,
           height: 630,
         },
         // {
@@ -105,7 +105,10 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
 
   return (
     <div className="w-full">
-      <Header title={post?.title} tags={true} />
+      {/* <Header title={post?.title} /> */}
+      <h1 className="w-full uppercase text-2xl font-semibold flex justify-center text-center py-5 md:py-8">
+        {`${post?.title}`}
+      </h1>
       <div className="text-center w-full px-3 md:px-5 lg:px-10">
         <span className="text-purple-500">
           {new Date(post?.publishedAt).toDateString()}

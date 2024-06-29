@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import PostComponent from "@/components/PostComponent";
 import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
@@ -58,7 +58,10 @@ const SingleTag = async ({
 
   return (
     <section className="w-full">
-      <Header title={`${slug}`} />
+      {/* <Header title={`${slug}`} /> */}
+      <h1 className="w-full uppercase text-2xl font-semibold flex justify-center text-center py-5 md:py-8">
+        {`${slug}`}
+      </h1>
       <div className="w-full px-3 md:px-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-2 md:gap-10">
         {posts?.length > 0
           ? posts.map((post) => <PostComponent key={post._id} post={post} />)
