@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Provider } from "@/utils/Provider";
 import Footer from "@/components/Footer";
 
-// const inter = Inter({ subsets: ["latin"] });
-const firaCode = Fira_Code({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+// const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.WEBSITE_URL || ""),
@@ -31,9 +31,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="en">
-      <body className="w-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1">
+      <body
+        className={`${inter.className} w-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1`}
+      >
         <Provider
           attribute="class"
           // defaultTheme="system"
@@ -41,11 +44,7 @@ export default function RootLayout({
           // disableTransitionOnChange
         >
           <Navbar />
-          <main
-            className={`${firaCode.className} w-full`}
-          >
-            {children}
-          </main>
+          <main className="w-full">{children}</main>
           <Footer />
         </Provider>
       </body>

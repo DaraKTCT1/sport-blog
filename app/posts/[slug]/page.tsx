@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import { PostType } from "@/utils/interface";
-// import { VT323 } from "next/font/google";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -9,9 +8,6 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import AddComment from "@/components/AddComment";
 import AllComments from "@/components/AllComments";
-import { url } from "inspector";
-// const dateFont = VT323({ weight: "400", subsets: ["latin"] });
-
 interface PropsType {
   params: {
     slug: string;
@@ -72,6 +68,8 @@ export async function generateMetadata({
       images: [
         {
           url: post.image,
+          width: 1200,
+          height: 630,
         },
         // {
         //   url: urlForImage(post?.body?.find((b: any) => b._type === "image")),
@@ -113,7 +111,11 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
         <div className="w-full flex m-auto justify-center gap-3 p-3">
           {post?.tags?.length > 0 &&
             post?.tags.map((tag) => (
-              <Link key={tag._id} href={`/tag/${tag.slug.current}`}>
+              <Link
+                prefetch={true}
+                key={tag._id}
+                href={`/tag/${tag.slug.current}`}
+              >
                 <span className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
                   #{tag.name}
                 </span>
