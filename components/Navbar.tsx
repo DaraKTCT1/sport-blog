@@ -7,7 +7,7 @@ const font = Chakra_Petch({ weight: "400", subsets: ["latin"] });
 
 const Navbar = () => {
   return (
-    <nav className="mx-auto max-w-5xl px-6">
+    <nav className="mx-auto w-full px-6 md:px-10">
       <div className="flex justify-between items-center h-16 w-full">
         <Link prefetch={true} href="/">
           <div className={`${font.className} text-3xl dark:text-white1`}>
