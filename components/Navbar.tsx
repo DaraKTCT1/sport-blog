@@ -14,13 +14,13 @@ const Navbar = () => {
             Sport<span className="text-blue1">News</span>
           </h1>
         </Link>
-        {/* <div className="flex gap-1">
+        <div className="flex gap-1">
           <Link href="/tag/football">football</Link>
           <Link href="/tag/boxing">boxing</Link>
           <Link href="/tag/basketball">basketball</Link>
           <Link href="/tag/volleyball">volleyball</Link>
           <Link href="/tag/most-popular">most-popular</Link>
-        </div> */}
+        </div>
         <ThemeSwitch />
       </div>
     </nav>
