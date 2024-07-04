@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 import AllPosts from "@/components/AllPosts";
 import { Suspense } from "react";
 
-// export const revalidate = 60;
+export const revalidate = 18000;
 
 async function getAllPosts() {
   const query = `
