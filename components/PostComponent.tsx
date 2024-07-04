@@ -14,8 +14,9 @@ const PostComponent = ({ post }: PropType) => {
   // console.log(post.image);
 
   return (
-    <Link href={`/posts/${post?.slug?.current}`}>
+    
       <article className="mb-8 w-full h-96 rounded-md bg-[#e7ecef] hover:opacity-85 dark:bg-dark2 hover:dark:opacity-75">
+      <Link href={`/posts/${post?.slug?.current}`}>
         <div className="relative w-full h-[60%] lg:h-[55%] rounded-md">
           <Image
             alt={`${post.title}`}
@@ -52,8 +53,9 @@ const PostComponent = ({ post }: PropType) => {
             ))}
           </div>
         </div>
+        </Link>
       </article>
-    </Link>
+    
   );
 };
 
