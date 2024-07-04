@@ -9,11 +9,12 @@ const Navbar = () => {
   return (
     <nav className="mx-auto font-bold w-full px-6 md:px-10">
       <div className="flex justify-between items-center h-16 w-full">
-        <Link prefetch={true} href="/">
+        
           <h1 className={`${font.className} text-3xl dark:text-white1`}>
+          <Link prefetch={true} href="/">
             Sport<span className="text-blue1">News</span>
-          </h1>
-        </Link>
+          </Link></h1>
+        
         
         <ThemeSwitch />
       </div>
