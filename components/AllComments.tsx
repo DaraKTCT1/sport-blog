@@ -1,6 +1,9 @@
 import { CommentType } from "@/utils/interface";
 import Link from "next/link";
 import React from "react";
+import { Chakra_Petch } from "next/font/google";
+
+const font = Chakra_Petch({ weight: "400", subsets: ["latin"] });
 
 interface PropsType {
   comments: Array<CommentType>;
@@ -10,17 +13,19 @@ interface PropsType {
 
 const AllComments = ({ comments, commentsOrder, slug }: PropsType) => {
   return (
-    <div>
-      <h3 className="font-bold">All Comments</h3>
-      {comments?.length === 0 && <p>No comments yet.</p>}
+    <div className={font.className}>
+      <h3 className="font-bold tracking-wider">All Comments</h3>
+      {comments?.length === 0 && (
+        <p className="tracking-wider">No comments yet.</p>
+      )}
       {comments?.length > 0 && (
         <div className="mb-4">
-          <span className="font-bold text-[20px]">SortBy</span>
+          <span className="font-bold text-[20px] tracking-wider">SortBy</span>
           {"  "}
           <Link
             scroll={false}
             href={`/posts/${slug}/?comments=asc`}
-            className={`pl-2 underline text-sm ${
+            className={`pl-2 underline tracking-wider font-semibold text-sm ${
               commentsOrder === "asc" ? "text-purple-500" : ""
             }`}
           >
@@ -29,7 +34,7 @@ const AllComments = ({ comments, commentsOrder, slug }: PropsType) => {
           <Link
             scroll={false}
             href={`/posts/${slug}/?comments=desc`}
-            className={`pl-2 underline text-sm ${
+            className={`pl-2 underline tracking-wider font-semibold text-sm ${
               commentsOrder === "desc" ? "text-purple-500" : ""
             }`}
           >
@@ -43,11 +48,10 @@ const AllComments = ({ comments, commentsOrder, slug }: PropsType) => {
           className="border-b border-gray-600 dark:border-gray-200/50 py-2"
         >
           <p>
-            <strong className="text-[20px] text-gray-700 dark:text-amber-50">
+            <strong className="text-[20px] tracking-wider text-purple-400">
               {comment?.name}
-            </strong>
-            {"  "}
-            <span className="text-gray-500 text-sm">
+            </strong>{" "}
+            <span className="text-gray-400 text-sm pl-1 md:pl-3">
               {new Date(comment?._createdAt).toLocaleString()}
             </span>
           </p>

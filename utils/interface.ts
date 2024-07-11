@@ -15,6 +15,12 @@ export interface TagType {
   _id: string;
   postCount?: number;
 }
+export interface AuthorType {
+  name: string;
+  slug: { current: string };
+  _id: string;
+  postCount?: number;
+}
 export interface CommentType {
   name: string;
   comment: string;

@@ -104,28 +104,25 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
       <Header title={post?.title} tags={true} />
       <div className="text-center w-full px-3 md:px-5 lg:px-10">
         <span className="text-purple-500">
-          {new Date(post?.publishedAt).toDateString()}
+          Post at {new Date(post?.publishedAt).toDateString()}
         </span>
       </div>
       <div className="w-full mt-5">
         <div className="w-full flex m-auto justify-center gap-3 p-3">
           {post?.tags?.length > 0 &&
             post?.tags.map((tag) => (
-              
-                <span key={tag._id} className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
-<Link
-                prefetch={true}
-                
-                href={`/tag/${tag.slug.current}`}
+              <span
+                key={tag._id}
+                className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900"
               >
+                <Link prefetch={true} href={`/tag/${tag.slug.current}`}>
                   #{tag.name}
-</Link>
-                </span>
-              
+                </Link>
+              </span>
             ))}
         </div>
 
-        <div className="w-full px-5 md:px-10 lg:px-12 mt-14 break-words text-justify max-w-2xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-decimal prose-li:leading-7 prose-li:ml-4">
+        <div className="w-full px-4 md:px-6 lg:px-8 mt-14 break-words text-justify max-w-3xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-decimal prose-li:leading-7 prose-li:ml-4">
           <PortableText
             value={post?.body}
             components={myPortableTextComponents}
