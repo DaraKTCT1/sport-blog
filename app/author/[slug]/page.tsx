@@ -30,16 +30,25 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
+  const posts: PostType[] = await getPostByAuthor(slug);
+
   return {
     title: `#${slug}`,
     description: `Posts with the author #${slug}`,
     openGraph: {
       title: `#${slug}`,
-      description: `Posts with the author #${slug}`,
+      description: `Posts with the author ${slug}`,
       type: "website",
       locale: "en_US",
       url: `${process.env.WEBSITE_URL}author/${slug}`,
       siteName: "SportBlogs",
+      images: [
+        {
+          url: posts[0]?.image,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }
