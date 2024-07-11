@@ -30,6 +30,8 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
+  const posts: PostType[] = await getPostByTag(slug);
+
   return {
     title: `#${slug}`,
     description: `Posts with the tag #${slug}`,
@@ -40,6 +42,13 @@ export async function generateMetadata({
       locale: "en_US",
       url: `${process.env.WEBSITE_URL}tag/${slug}`,
       siteName: "SportBlogs",
+      images: [
+        {
+          url: posts[0]?.image,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }

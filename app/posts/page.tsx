@@ -4,6 +4,7 @@ import { PostType } from "@/utils/interface";
 import { client } from "@/sanity/lib/client";
 import AllPosts from "@/components/AllPosts";
 import { Suspense } from "react";
+import { Metadata } from "next";
 
 export const revalidate = 3600;
 
@@ -24,6 +25,11 @@ async function getAllPosts() {
   const data = await client.fetch(query);
   return data;
 }
+
+export const metadata: Metadata = {
+  title: "Posts",
+  description: "Share information about sport for everyone.",
+};
 
 export default async function PostPage() {
   const posts: PostType[] = await getAllPosts();
