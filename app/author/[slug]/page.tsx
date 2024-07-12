@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
 import { notFound } from "next/navigation";
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 async function getPostByAuthor(slug: string) {
   const query = `
@@ -30,26 +30,26 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const posts: PostType[] = await getPostByAuthor(slug);
+  // const posts: PostType[] = await getPostByAuthor(slug);
 
   return {
     title: `#${slug}`,
-    description: `Posts with the author #${slug}`,
-    openGraph: {
-      title: `#${slug}`,
-      description: `Posts with the author ${slug}`,
-      type: "website",
-      locale: "en_US",
-      url: `${process.env.WEBSITE_URL}author/${slug}`,
-      siteName: "SportBlogs",
-      images: [
-        {
-          url: posts[0]?.image,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
+    description: `Posts with the author ${slug}`,
+    // openGraph: {
+    //   title: `#${slug}`,
+    //   description: `Posts with the author ${slug}`,
+    //   type: "website",
+    //   locale: "en_US",
+    //   url: `${process.env.WEBSITE_URL}author/${slug}`,
+    //   siteName: "SportBlogs",
+    //   images: [
+    //     {
+    //       url: posts[0]?.image,
+    //       width: 1000,
+    //       height: 600,
+    //     },
+    //   ],
+    // },
   };
 }
 

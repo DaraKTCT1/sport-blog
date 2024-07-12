@@ -1,4 +1,5 @@
 import { defineType } from "sanity";
+import { Rule } from "sanity";
 
 export const author = defineType({
   name: "author",
@@ -9,6 +10,10 @@ export const author = defineType({
       name: "name",
       title: "Author name",
       type: "string",
+      validation: (Rule: Rule) =>
+        Rule.required()
+          .max(100)
+          .error("Author name most contain and max 100 characters"),
     },
     {
       name: "slug",
@@ -17,6 +22,7 @@ export const author = defineType({
       options: {
         source: "name",
       },
+      validation: (Rule: Rule) => Rule.required().error("Slug Required"),
     },
   ],
 });

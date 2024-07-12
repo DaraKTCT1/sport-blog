@@ -3,7 +3,7 @@ import { PostType } from "@/utils/interface";
 import PostComponent from "@/components/PostComponent";
 import { client } from "@/sanity/lib/client";
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 async function getPosts() {
   const query = `

@@ -39,6 +39,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.WEBSITE_URL}tag` || "",
       lastModified: new Date(),
     },
+    {
+      url: `${process.env.WEBSITE_URL}author` || "",
+      lastModified: new Date(),
+    },
     ...postsUrl,
   ];
 }

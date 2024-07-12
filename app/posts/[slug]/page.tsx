@@ -68,8 +68,8 @@ export async function generateMetadata({
       images: [
         {
           url: post.image,
-          width: 1200,
-          height: 630,
+          width: 1000,
+          height: 600,
         },
         // {
         //   url: urlForImage(post?.body?.find((b: any) => b._type === "image")),

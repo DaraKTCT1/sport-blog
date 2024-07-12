@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 async function getAllAuthor() {
   const query = `

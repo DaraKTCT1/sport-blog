@@ -6,7 +6,7 @@ import AllPosts from "@/components/AllPosts";
 import { Suspense } from "react";
 import { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 async function getAllPosts() {
   const query = `

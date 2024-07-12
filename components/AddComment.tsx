@@ -45,16 +45,19 @@ const AddComment = ({ postId }: { postId: string }) => {
         <label>Name</label>
         <input
           className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
-          {...register("name", { required: true })}
+          {...register("name", { required: true, maxLength: 100 })}
         />
         {errors.name && (
-          <p className="text-xs text-red-600">Name is required.</p>
+          <p className="text-xs text-red-600">
+            Name is required and max 100 characters
+          </p>
         )}
         <label>Email</label>
         <input
           className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
           {...register("email", {
             required: true,
+            maxLength: 100,
             pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
           })}
         />
@@ -70,10 +73,14 @@ const AddComment = ({ postId }: { postId: string }) => {
         <textarea
           rows={4}
           className="mb-4 px-2 py-2 rounded-md bg-[#EAEEF1] dark:bg-dark2"
-          {...register("comment", { required: true, minLength: 4 })}
+          {...register("comment", {
+            required: true,
+            minLength: 10,
+            maxLength: 1000,
+          })}
         />
         {errors.comment && (
-          <p className="text-xs text-red-600">comment at least 4 characters</p>
+          <p className="text-xs text-red-600">comment at least 10 characters</p>
         )}
         <input
           className={`text-center cursor-pointer text-white font-semibold bg-gradient-to-r from-gray-800 to-black px-3 py-1 md:px-5 md:py-2 rounded-md border border-gray-600 hover:scale-105 duration-200 hover:text-gray-500 hover:border-gray-800 hover:from-black hover:to-gray-900 ${
