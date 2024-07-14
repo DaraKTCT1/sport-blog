@@ -8,6 +8,9 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import AddComment from "@/components/AddComment";
 import AllComments from "@/components/AllComments";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 interface PropsType {
   params: {
     slug: string;
@@ -100,7 +103,8 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   // if do not have post call not found it mean go to not-found.tsx
 
   return (
-    <div className="w-full">
+    <section className="w-full">
+      <Navbar />
       <Header title={post?.title} tags={true} />
       <div className="text-center w-full px-3 md:px-5 lg:px-10">
         <span className="text-purple-500">
@@ -135,7 +139,8 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
           />
         </div>
       </div>
-    </div>
+      <Footer />
+    </section>
   );
 };
 

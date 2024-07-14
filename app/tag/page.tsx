@@ -3,6 +3,8 @@ import { TagType } from "@/utils/interface";
 import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const revalidate = 1800;
 
@@ -29,6 +31,7 @@ const Tags = async () => {
 
   return (
     <section className="w-full">
+      <Navbar />
       <Header title="All Blog By Tags" />
       <div className="w-full flex flex-col m-auto justify-center items-center px-1 md:px-3 gap-1 md:gap-2">
         <>
@@ -57,6 +60,7 @@ const Tags = async () => {
           </Link>
         </>
       </div>
+      <Footer />
     </section>
   );
 };

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import { Provider } from "@/utils/Provider";
-import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/utils/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 // const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -31,22 +29,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} w-full bg-white1 text-dark1 dark:text-white1 dark:bg-dark1`}
-      >
-        <Provider
+      <body className={inter.className}>
+        <ThemeProvider
           attribute="class"
           // defaultTheme="system"
           // enableSystem
           // disableTransitionOnChange
         >
-          <Navbar />
-          <main className="w-full">{children}</main>
-          <Footer />
-        </Provider>
+          <main className="w-full min-h-screen bg-white1 text-dark1 dark:text-white1 dark:bg-dark1">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

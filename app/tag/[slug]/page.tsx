@@ -3,6 +3,8 @@ import PostComponent from "@/components/PostComponent";
 import { client } from "@/sanity/lib/client";
 import { PostType } from "@/utils/interface";
 import { notFound } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const revalidate = 1800;
 
@@ -67,12 +69,14 @@ const SingleTag = async ({
 
   return (
     <section className="w-full">
+      <Navbar />
       <Header title={`${slug}`} tags={true} />
       <div className="w-full px-3 md:px-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-2 md:gap-10">
         {posts?.length > 0
           ? posts.map((post) => <PostComponent key={post._id} post={post} />)
           : null}
       </div>
+      <Footer />
     </section>
   );
 };
