@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const AddComment = ({ postId }: { postId: string }) => {
   const {
@@ -24,11 +25,13 @@ const AddComment = ({ postId }: { postId: string }) => {
     });
 
     if (res.ok) {
-      alert("Comment added successfully!");
+      toast.success("Comment added successfully!");
+      // alert("Comment added successfully!");
       reset();
       router.refresh();
     } else {
-      console.log("Failed to add a comment");
+      toast.error("Failed to add a comment we will fix it later!");
+      // console.log("Failed to add a comment");
       return;
     }
   };
