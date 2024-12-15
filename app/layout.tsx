@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/utils/Provider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 // const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -41,6 +43,7 @@ export default function RootLayout({
           <main className="w-full min-h-screen bg-white1 text-dark1 dark:text-white1 dark:bg-dark1">
             {children}
           </main>
+          <ToastContainer />
         </ThemeProvider>
       </body>
     </html>

@@ -16,6 +16,15 @@ export const author = defineType({
           .error("Author name most contain and max 100 characters"),
     },
     {
+      name: "image",
+      title: "Image",
+      type: "image",
+      // options: {
+      //   hotspot: true, // Allows selecting a hotspot for cropping
+      // },
+      validation: (Rule: Rule) => Rule.required().error("Image Required"),
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
