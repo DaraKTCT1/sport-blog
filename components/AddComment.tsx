@@ -28,6 +28,7 @@ const AddComment = ({ postId }: { postId: string }) => {
       reset();
       router.refresh();
     } else {
+      alert("Failed to add a comment");
       console.log("Failed to add a comment");
       return;
     }
