@@ -10,6 +10,8 @@ import AddComment from "@/components/AddComment";
 import AllComments from "@/components/AllComments";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import RelatedPostsContainer from "@/components/RelatedPostsContainer";
 
 interface PropsType {
   params: {
@@ -92,10 +94,31 @@ const myPortableTextComponents = {
   },
 };
 
+async function getPostByTag(slug: string) {
+  const query = `
+    *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id)]{
+      title,
+      slug,
+      publishedAt,
+      "image": image.asset->url,
+      excerpt,
+      tags []-> {
+        _id,
+        slug,
+        name,
+      } 
+    }
+    `;
+  const data = await client.fetch(query);
+  return data;
+}
+
 const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   const searchParamsOrder = searchParams.comments || "desc";
   const post: PostType = await getPost(slug, searchParamsOrder.toString());
   // console.log(post);
+  const relate = await getPostByTag(post.tags[0].slug.current);
+  // console.log(relate);
 
   if (!post) {
     notFound();
@@ -139,6 +162,11 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
           />
         </div>
       </div>
+      {/* <Suspense fallback={<p>Loading...</p>}>{JSON.stringify(relate)}</Suspense> */}
+      <Suspense fallback={<div className="loading-root"></div>}>
+        {" "}
+        <RelatedPostsContainer posts={relate} />
+      </Suspense>
       <Footer />
     </section>
   );
