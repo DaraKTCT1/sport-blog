@@ -94,9 +94,9 @@ const myPortableTextComponents = {
   },
 };
 
-async function getPostByTag(slug: string) {
+async function getPostByTag(slug: string, currentPost: string) {
   const query = `
-    *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id)]{
+    *[_type == "post" && references(*[_type == "tag" && slug.current == "${slug}"]._id) && slug.current != "${currentPost}"]{
       title,
       slug,
       publishedAt,
@@ -117,7 +117,7 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   const searchParamsOrder = searchParams.comments || "desc";
   const post: PostType = await getPost(slug, searchParamsOrder.toString());
   // console.log(post);
-  const relate = await getPostByTag(post.tags[0].slug.current);
+  const relate = await getPostByTag(post.tags[0].slug.current,slug);
   // console.log(relate);
 
   if (!post) {
