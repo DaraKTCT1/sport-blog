@@ -117,7 +117,7 @@ const SinglePost = async ({ params: { slug }, searchParams }: PropsType) => {
   const searchParamsOrder = searchParams.comments || "desc";
   const post: PostType = await getPost(slug, searchParamsOrder.toString());
   // console.log(post);
-  const relate = await getPostByTag(post.tags[0].slug.current,slug);
+  const relate = await getPostByTag(post.tags[0].slug.current, slug);
   // console.log(relate);
 
   if (!post) {
